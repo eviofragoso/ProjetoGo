@@ -2,7 +2,7 @@
 
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
-
+//use ../app/ApplicationAspectKernel.php
 // If you don't want to setup permissions the proper way, just uncomment the following PHP line
 // read https://symfony.com/doc/current/setup.html#checking-symfony-application-configuration-and-setup
 // for more information
@@ -20,11 +20,12 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
 
 require __DIR__.'/../vendor/autoload.php';
 Debug::enable();
+
 $applicationAspectKernel = ApplicationAspectKernel::getInstance();
 $applicationAspectKernel->init(array(
         'debug' => true, // use 'false' for production mode
         // Cache directory
-        'cacheDir'  => __DIR__ . '/path/to/cache/for/aop',
+        // 'cacheDir'  => __DIR__ . '/AopCache.php',
         // Include paths restricts the directories where aspects should be applied, or empty for all source files
         'includePaths' => array(
             __DIR__ . '/../src/'
